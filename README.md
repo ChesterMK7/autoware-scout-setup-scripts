@@ -4,14 +4,17 @@ Bash scripts for setting up Autoware requirements and ROS2 hardware drivers for 
 ## Requirements
 
 Ubuntu 22.04    
+
 Nvidia GPU with current driver support and CUDA compatability
+- As of driver 610, this includes Turing (GTX 16XX & RTX 20XX) and newer
 
 ### Tested Using
 
 Ubuntu 22.04 x86_64
+
 Intel NUC
-    Intel Core i5-1167G
-    Nvidia RTX 2060
+- Intel Core i5-1167G
+- Nvidia RTX 2060
 
 ## Setup and Usage
 
