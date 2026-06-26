@@ -74,6 +74,10 @@ git clone https://github.com/westonrobot/ugv_sdk
 git clone https://github.com/agilexrobotics/scout_ros2 -b origin/jazzy
 # Move docker scripts to shared directory
 cd ..
-mv ~/docker-scripts ./ 
+mv ~/docker-scripts ./
+# Get required local repos for container
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin
+wget https://developer.download.nvidia.com/compute/cuda/13.0.3/local_installers/cuda-repo-ubuntu2404-13-0-local_13.0.3-580.126.20-1_amd64.deb
+wget https://developer.download.nvidia.com/compute/tensorrt/10.13.3/local_installers/nv-tensorrt-local-repo-ubuntu2404-10.13.3-cuda-13.0_1.0-1_amd64.deb
 #  Run the docker container and setup script
 docker run --rm -it   --net host   --privileged   --gpus all   -e DISPLAY=$DISPLAY   -e NVIDIA_DRIVER_CAPABILITIES=all   -e NVIDIA_VISIBLE_DEVICES=all   -e HOST_UID=$(id -u)   -e HOST_GID=$(id -g)   -e QT_X11_NO_MITSHM=1   -v /tmp/.X11-unix:/tmp/.X11-unix:rw   -v $HOME/autoware_data/maps:/home/aw/autoware_data/maps   -v $HOME/autoware_data/ml_models:/home/aw/autoware_data/ml_models   -v $HOME/autoware:/home/aw/autoware   -w /home/aw/autoware   --runtime=nvidia   --device=/dev/ttyUSB0 autoware:universe-cuda-jazzy   bash -c "source /opt/autoware/setup.bash && exec bash && ./docker-scripts/full-setup.bash"

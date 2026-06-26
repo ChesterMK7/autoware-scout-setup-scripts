@@ -31,4 +31,13 @@ cd autoware-scout-setup-scripts/host-scripts
 ./host-setup.bash
 ```
 
+## After Initial Install
+
+Use the run container script to setup drivers and mount directories
+
+```bash
+cd autoware-scout-setup-scripts/host-scripts
+./run-container.bash
+```
+
 Note that you may need to make the scripts executable
