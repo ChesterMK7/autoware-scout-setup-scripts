@@ -10,11 +10,12 @@ Nvidia GPU with current driver support and CUDA compatability
 
 ### Tested Using
 
-Ubuntu 22.04 x86_64
+Ubuntu 22.04.5 x86_64
 
 Intel NUC
-- Intel Core i5-1167G
-- Nvidia RTX 2060
+- Intel Core i5-1165G
+- Nvidia RTX 2060 Mobile
+- 32GB DDR4
 
 ## Setup and Usage
 
@@ -24,6 +25,14 @@ Clone the repository
 git clone https://github.com/ChesterMK7/autoware-scout-setup-scripts
 ```
 
+Make the scripts executable
+
+```bash
+# From the repo base directory
+sudo chmod +x host-scripts/*.bash
+sudo chmod +x docker-scripts/*.bash
+```
+
 Run the host setup script
 
 ```bash
@@ -31,13 +40,35 @@ cd autoware-scout-setup-scripts/host-scripts
 ./host-setup.bash
 ```
 
+Run the container setup script
+
+```bash
+./full-setup.bash
+```
+
+If using the Livox HAP, run the Livox script instead
+
+```bash
+./full-setup-livox.bash
+```
+
 ## After Initial Install
 
-Use the run container script to setup drivers and mount directories
+Use the run container script to setup container options and mount directories
 
 ```bash
 cd autoware-scout-setup-scripts/host-scripts
 ./run-container.bash
 ```
 
-Note that you may need to make the scripts executable
+Run the respective package setup script in the container
+
+```bash
+# For Robosense
+./package-setup.bash
+```
+
+```bash
+# For Livox
+./package-setup.bash
+```
