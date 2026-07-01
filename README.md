@@ -1,5 +1,5 @@
 # autoware-scout-setup-scripts
-Bash scripts for setting up Autoware requirements and ROS2 hardware drivers for the Scout 2.0 and Scout Mini. Currently a work-in progress.
+Bash scripts for setting up Autoware requirements and ROS2 hardware drivers for the Scout 2.0 and Scout Mini. Currently a work-in-progress.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ git clone https://github.com/ChesterMK7/autoware-scout-setup-scripts
 Make the scripts executable
 
 ```bash
-# From the repo base directory
+cd autoware-scout-setup-scripts
 sudo chmod +x host-scripts/*.bash
 sudo chmod +x docker-scripts/*.bash
 ```
@@ -36,7 +36,7 @@ sudo chmod +x docker-scripts/*.bash
 Run the host setup script
 
 ```bash
-cd autoware-scout-setup-scripts/host-scripts
+cd host-scripts
 ./host-setup.bash
 ```
 
