@@ -13,10 +13,11 @@ sudo dpkg -i nv-tensorrt-local-repo-ubuntu2404-10.13.3-cuda-13.0_1.0-1_amd64.deb
 sudo cp /var/nv-tensorrt-local-repo-ubuntu2404-10.13.3-cuda-13.0/*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get install -y tensorrt
-# Install TensorRT CMake Module and ROS Diagnostics
+# Install TensorRT CMake Module,  ROS Diagnostics, and libpcap
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y ros-jazzy-tensorrt-cmake-module ros-jazzy-diagnostics
+sudo apt-get install -y  libpcap-dev
 # Create symlinks to fix thrust include errors
 # CUDA 13 moved these to the cccl subdirectory of the cuda include folder, this makes autoware able to find the headers it needs
 # Could fix this by manually adding cccl/ in front of every thrust include in src, but that seemed tedious
