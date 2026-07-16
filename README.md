@@ -5,8 +5,8 @@ Bash scripts for setting up Autoware requirements and ROS2 hardware drivers for 
 
 Ubuntu 22.04    
 
-Nvidia GPU with current driver support and CUDA compatability
-- As of driver 610, this includes Turing (GTX 16XX & RTX 20XX) and newer
+Nvidia GPU with current driver support, RT capabilities, and CUDA 12 compatability
+- As of driver 610, this includes Turing (RTX 20XX) and newer
 
 ### Tested Using
 
@@ -70,5 +70,5 @@ Run the respective package setup script in the container
 
 ```bash
 # For Livox
-./package-setup.bash
+./package-setup-livox.bash
 ```
