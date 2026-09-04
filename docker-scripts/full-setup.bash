@@ -32,6 +32,9 @@ source install/setup.bash
 # Scout-Platform Workspace Build
 cd ../Scout-Workspace
 rosdep install -yr --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-colcon build
+# For Livox
+colcon build --cmake-args -DROS_EDITION="ROS2" -DDISTRO_ROS="jazzy" --packages-select livox_ros_driver2
+# For everything else
+colcon build --packages-ignore livox_ros_driver2
 source install/setup.bash
 cd ../autoware
