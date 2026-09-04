@@ -24,5 +24,12 @@ sudo apt-get install -y  libpcap-dev
 sudo ln -s /usr/local/cuda/include/cccl/thrust /usr/local/cuda/include/thrust
 sudo ln -s /usr/local/cuda/include/cccl/cub /usr/local/cuda/include/cub
 sudo ln -s /usr/local/cuda/include/cccl/cuda /usr/local/cuda/include/cuda
+# Install rosdeps
+rosdep update
+rosdep install -yr --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+cd ../Scout-Platform
+rosdep install -yr --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 # Source workspace
+source install/setup.bash
+cd ../autoware
 source install/setup.bash

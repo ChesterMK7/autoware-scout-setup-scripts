@@ -24,8 +24,14 @@ sudo apt-get install -y  libpcap-dev
 sudo ln -s /usr/local/cuda/include/cccl/thrust /usr/local/cuda/include/thrust
 sudo ln -s /usr/local/cuda/include/cccl/cub /usr/local/cuda/include/cub
 sudo ln -s /usr/local/cuda/include/cccl/cuda /usr/local/cuda/include/cuda
-# Workspace build (rosdep will likely not work on ClarksonGuest due to githubusercontent.com blocking traffic)
+# Autoware Workspace build (rosdep will likely not work on ClarksonGuest due to githubusercontent.com blocking traffic)
 rosdep update
 rosdep install -yr --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
+# Scout-Platform Workspace Build
+cd ../Scout-Workspace
+rosdep install -yr --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+colcon build
+source install/setup.bash
+cd ../autoware
